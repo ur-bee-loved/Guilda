@@ -1,0 +1,358 @@
+*,
+*::before,
+*::after {
+  box-sizing:border-box
+}
+:root {
+  --bg-lighter:#606c38;
+  --bg2: #EBE3A7;
+  --bg:#2E2910;
+  --fg:#d0d6e0;
+  --accent:#EB7D00;
+  --txtcolor:#dda15e;
+  
+}
+:root {
+  color:var(--fg);
+  background-image:linear-gradient( rgba(0,0,0,.1),rgba(0,0,0,.35) ),url(images/mughalscosta.jpg);
+  background-repeat:no-repeat;
+  background-position:50%;
+  background-size:cover;
+  background-attachment:fixed
+}
+body {
+  margin:0 auto;
+  height:100vh;
+  padding:1rem
+}
+a {
+  color:var(--txtcolor)
+}
+a:visited {
+  color:#ff0
+}
+.yt-link {
+  display:inline-block;
+  & a {
+    position:relative
+  }
+  & .img-container {
+    display:inline-block;
+    position:relative
+  }
+  & .overlay {
+    color:#fff;
+    font-size:2rem;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)
+  }
+  & .triangle {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:0;
+    height:0;
+    border-left:25px solid #fff;
+    border-top:15px solid transparent;
+    border-bottom:15px solid transparent;
+    opacity:.7
+  }
+  &:hover {
+    & .triangle {
+      transform:translate(-50%,-50%)scale(1.2);
+      opacity:1
+    }
+  }
+}
+.sane-img {
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover
+}
+.quick-links {
+  border-radius:12px;
+  background:var(--bg);
+  list-style:none;
+  flex-wrap:wrap;
+  padding:0;
+  & a {
+    display:block;
+    text-decoration:none
+  }
+  & a:visited {
+    color:inherit
+  }
+  & li {
+    color:var(--txtcolor);
+    padding:10px
+  }
+  & li:hover {
+    background:var(--accent)
+  }
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.nice-border {
+  border:solid;
+  border-width:1px;
+  border-color:gray;
+  padding:10px
+}
+.status {
+  rotate:-2deg;
+  padding:10px;
+  background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.5)),url(images/sorkshop2.png);
+  background-repeat:no-repeat;
+  background-position:50%;
+  background-size:cover
+}
+.buttons {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px
+}
+.fake-btn {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:small;
+  text-align:center;
+  width:88px;
+  height:31px;
+  border:solid;
+  border-width:2px;
+  border-color:gray;
+  padding:16px
+}
+.wrapper {
+  margin:5rem auto;
+  max-width:1080px;
+  overflow:auto
+}
+.content {
+  background:var(--bg);
+  padding:1rem;
+  border-radius:12px;
+  margin-bottom:25px
+}
+@media(min-width:700px) {
+  .content {
+    padding:2rem
+  }
+}
+.music-list {
+  max-width:900px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:2rem
+}
+.music-item {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom:2rem;
+  gap:1rem
+}
+.music-thumbnail {
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+  border-radius:6px
+}
+.music-title {
+  text-align:center
+}
+.nice-scrollbar::-webkit-scrollbar {
+  width:8px
+}
+.nice-scrollbar::-webkit-scrollbar-track {
+  background:#222;
+  border-radius:10px
+}
+.nice-scrollbar::-webkit-scrollbar-thumb {
+  background:#888;
+  border-radius:10px
+}
+.nice-scrollbar::-webkit-scrollbar-thumb:hover {
+  background:#aaa
+}
+.contactme {
+  padding:10px
+}
+.shadow-3 {
+  box-shadow:10px 10px 30px rgba(0,0,0,.3)
+}
+.grid-2 {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.5rem
+}
+@media(min-width:700px) {
+  .grid-2 {
+    grid-template-columns:1fr 1fr
+  }
+}
+.pinned {
+  list-style:"📌"
+}
+.reading img {
+  display:block;
+  object-fit:cover;
+  height:300px;
+  margin:0 auto
+}
+.intro {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center
+}
+.intro-img-container {
+  width:100%
+}
+.intro-img-container img {
+  margin:0 auto
+}
+@media(min-width:700px) {
+  .intro {
+    flex-wrap:nowrap
+  }
+  .intro-text {
+    width:70%
+  }
+  .intro-img-container {
+    width:inherit
+  }
+}
+.review-thumbnail {
+  max-height:150px;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  border-radius:4px
+}
+a.a-normal,
+a.a-normal:visited {
+  text-decoration:none;
+  color:unset
+}
+.review-box {
+  display:inline-flex;
+  color:revert;
+  text-decoration:none;
+  padding:8px;
+  gap:12px;
+  border-radius:8px;
+  background:var(--bg-lighter)
+}
+.review-data {
+  display:flex;
+  flex-direction:column;
+  gap:5px
+}
+.review-title {
+  font-size:120%;
+  font-style:italic
+}
+.review-text-small {
+  font-size:80%
+}
+.review-rating {
+  color:#e5c07b
+}
+.review-date {
+  color:gray;
+  font-style:italic
+}
+.review-list {
+  display:grid;
+  gap:1rem;
+  flex-wrap:wrap
+}
+.bookcover {
+  width:200px;
+  display:block;
+  height:auto;
+  margin:0 auto 20px;
+  border-radius:4px
+}
+@media(min-width:700px) {
+  .bookcover {
+    float:left;
+    display:inline;
+    margin:0 20px 10px 0
+  }
+}
+.diary-entries {
+  display:flex;
+  flex-direction:column;
+  gap:2rem
+}
+.diary-entry {
+  background:var(--bg-lighter);
+  padding:1rem;
+  border-radius:8px;
+  margin:0 auto
+}
+.diary-date {
+  color:gray;
+  font-size:80%;
+  font-style:italic
+}
+.diary-title {
+  font-weight:700
+}
+.diary-header {
+  display:flex;
+  gap:12px;
+  align-items:center
+}
+.diary-avatar {
+  width:56px;
+  height:56px;
+  border-radius:10px;
+  object-fit:cover;
+  flex-shrink:0
+}
+.diary-readmore,
+.diary-readmore:visited {
+  color:#e5c07b
+}
+.highlight pre {
+  padding:1rem
+}
+p>code {
+  background-color:#3c4043;
+  color:#f8f8f2;
+  padding:1px;
+  border-radius:3px
+}
+blockquote {
+  font-style:italic;
+  color:#e5c07b
+}
+@media(min-width:700px) {
+  .column-2 {
+    column-count:2
+  }
+}
+.quote-green {
+  color:#98c379
+}
+.quote-purple {
+  color:#c678dd
+}
+.quote-danger {
+  color:#e06c75
+}
