@@ -30,13 +30,17 @@ function initializepapeis() {
     requestAnimationFrame(tick);
 }
 
-
 const sensitivity = 0.1;
 const bounceThreshold = 5;
 const damping = 0.95;
+const gravity = 0.6;
+const floorRestitution = 0.6;
+const restVelocity = 0.6;
 
 function tick() {
     if (window.papelPositions) {
+        handleGravity();
+
         papeis.forEach((papel, index) => {
             const pos = window.papelPositions[index];
             if (pos.dragging) return;
@@ -56,9 +60,16 @@ function tick() {
                 if (Math.abs(pos.vx) > bounceThreshold) triggerBounce(papel);
             }
             if (pos.y < 0 || pos.y > maxY) {
-                pos.vy *= -1;
+                // Floor/ceiling hits lose energy (restitution) instead of
+                // bouncing forever like the walls do, so gravity eventually
+                // settles the paper to a rest on the floor.
+                pos.vy *= -floorRestitution;
                 pos.y = Math.max(0, Math.min(maxY, pos.y));
-                if (Math.abs(pos.vy) > bounceThreshold) triggerBounce(papel);
+                if (Math.abs(pos.vy) > bounceThreshold) {
+                    triggerBounce(papel);
+                } else if (pos.y >= maxY) {
+                    pos.vy = 0;
+                }
             }
 
             papel.style.left = `${pos.x}px`;
@@ -69,6 +80,24 @@ function tick() {
     }
 
     requestAnimationFrame(tick);
+}
+
+
+// Aplica uma aceleração constante à todos os itens que não estejam sendo puxados pelo mouse
+// também não toca nos itens parados. Idealmente hehe
+function handleGravity() {
+    if (!window.papelPositions) return;
+
+    papeis.forEach((papel, index) => {
+        const pos = window.papelPositions[index];
+        if (pos.dragging) return;
+
+        const maxY = window.innerHeight - papel.offsetHeight;
+        const atRest = pos.y >= maxY && Math.abs(pos.vy) < restVelocity;
+        if (atRest) return;
+
+        pos.vy += gravity;
+    });
 }
 
 function triggerBounce(papel) {
@@ -113,6 +142,7 @@ function handleShake(clientX, clientY) {
     lastPointerTime = now;
 }
 
+// função exclusiva do uso do giroscópio
 function initializeShakeBounce() {
     window.addEventListener('mousemove', (event) => handleShake(event.clientX, event.clientY));
     window.addEventListener('touchmove', (event) => {
@@ -173,6 +203,7 @@ function handleCollision(papel1, papel2) {
     }
 }
 
+// essa função existe pra garantir que os itens não sejam todos criados num mesmo ponto da página.
 function separatepapeis(papel1, papel2) {
     const index1 = Array.from(papeis).indexOf(papel1);
     const index2 = Array.from(papeis).indexOf(papel2);
@@ -258,3 +289,4 @@ function initializeDragEvents() {
         });
     });
 }
+

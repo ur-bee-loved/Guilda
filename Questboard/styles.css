@@ -1,7 +1,9 @@
 body {
     margin: 0;
     height: 100vh;
-    background-image: url('https://c7.alamy.com/comp/2GCH6JE/rustic-wooden-notice-board-in-retro-style-isolated-on-white-2GCH6JE.jpg');
+    background-image: url('images/backgroundplaceholder.png');
+    background-size: 100% 100%;
+    background-position: center;
     position: relative;
     overflow: hidden;
 }
