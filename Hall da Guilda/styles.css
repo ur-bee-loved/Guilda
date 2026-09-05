@@ -356,3 +356,34 @@ blockquote {
 .quote-danger {
   color:#e06c75
 }
+@font-face {
+  font-family: Aileron;
+  src: url(/fonts/Aileron-Regular.woff);
+}
+@font-face {
+  font-family: AileronBold;
+  src: url(/fonts/Aileron-Bold.woff);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: elvish;
+  src: url(/fonts/elvish\ ring\ nfi.woff);
+}
+@font-face {
+  font-family: brasoes;
+  src: url(/fonts/Free\ Medieval.woff);
+}
+@font-face {
+  font-family: firulas;
+  src: url(/fonts/MedievalDingbats.woff);
+}
+
+@font-face {
+  font-family: tiles;
+  src: url(/fonts/MEDITI__.woff);
+}
+@font-face {
+  font-family: letragrand;
+  src: url(/fonts/mevno1.woff);
+}
