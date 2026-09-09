@@ -15,8 +15,10 @@ function initializepapeis() {
         };
     });
 
+    //aqui dá pra adicionar + imagens hehehe
     const papelImages = [
         'images/papelzinho.png',
+        'images/scroll.png'
     ];
 
     papeis.forEach((papel, index) => {
